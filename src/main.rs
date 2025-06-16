@@ -1,5 +1,7 @@
 use actix_web::{HttpResponse, get, web};
 
+mod handlers;
+
 #[get("/")]
 async fn index() -> HttpResponse {
     HttpResponse::Ok().finish()
@@ -14,6 +16,7 @@ async fn main() -> std::io::Result<()> {
     let server = actix_web::HttpServer::new(|| {
         actix_web::App::new()
             .service(index)
+            .route("/health", web::get().to(handlers::health_check))
     });
 
     server.bind(bind_addr)?.run().await
