@@ -35,11 +35,17 @@ After the server is running you can hit the root endpoint:
 curl -i http://127.0.0.1:8000/
 ```
 
-## Docker (optional)
+## Docker
 
-There is no Dockerfile in this repository, but you can run the app with a Rust
-Docker image if you prefer:
+Build the image:
 
 ```bash
-docker run --rm -it -p 8000:8000 -v "$PWD":/usr/src/app -w /usr/src/app rust:latest cargo run
+docker build -t bcode-seed-rust-api .
 ```
+
+Run the container:
+
+```bash
+docker run --rm -p 8000:8000 bcode-seed-rust-api
+```
+
