@@ -5,7 +5,7 @@ mod handlers;
 
 use actix_web::{test, web, App};
 
-#[actix_rt::test]
+#[actix_web::test]
 async fn test_index() {
     let mut app = App::new().service(main::index);
     let mut app = test::init_service(app).await;
@@ -15,7 +15,7 @@ async fn test_index() {
     assert!(resp.status().is_success());
 }
 
-#[actix_rt::test]
+#[actix_web::test]
 async fn test_health_check() {
     let mut app =
         App::new().route("/health", web::get().to(handlers::health_check));
