@@ -2,6 +2,8 @@
 
 This is a minimal Actix Web example.
 
+For an overview of the repository structure, see [doc/README-project.md](doc/README-project.md).
+
 ## Prerequisites
 
 - [Rust](https://www.rust-lang.org/tools/install) toolchain
